@@ -1,0 +1,9 @@
+.spinner-border {
+  --bs-spinner-width: 6rem;
+  --bs-spinner-height: 6rem;
+}
+.circle {
+  border-radius: 35px;
+  width: 40px;
+  height: 40px;
+}

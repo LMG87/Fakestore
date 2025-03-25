@@ -57,3 +57,11 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+## ESLINT PARA VERSION NUEVA
+
+para que respete los estilos de la version nueva de angular
+
+```bash
+npm install prettier prettier-eslint eslint-config-prettier eslint-plugin-prettier --save-dev
+```
