@@ -9,8 +9,17 @@
     <p class="card-text">
       {{ product().description }}
     </p>
-    <a href="#" class="btn btn-success d-block">{{
-      product().price | currency
-    }}</a>
+    <a
+      href="#"
+      class="btn btn-primary d-inline-block"
+      [routerLink]="['/product', product().id]"
+      >View Details
+    </a>
+    <button
+      class="btn btn-success d-inline-block float-end"
+      (click)="add($event)"
+    >
+      <i class="bi bi-cart me-2"></i>add to cart
+    </button>
   </div>
 </div>

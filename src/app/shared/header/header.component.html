@@ -21,17 +21,37 @@
               href="#"
               [routerLink]="'/products'"
               routerLinkActive="active"
-              >Home</a
+              [routerLinkActiveOptions]="{ exact: true }"
+              >Store</a
             >
           </li>
           <li class="nav-item">
             <a
               class="nav-link"
               href="#"
-              [routerLink]="'/products'"
+              [routerLink]="'/cart'"
               routerLinkActive="active"
-              >Link</a
+              [routerLinkActiveOptions]="{ exact: true }"
+              >Cart</a
             >
+          </li>
+          <li class="nav-item">
+            <button
+              type="button"
+              class="btn btn-warning circle position-relative"
+              [routerLink]="'/cart'"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }"
+            >
+              <i class="bi bi-cart"></i>
+              <span
+                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                *ngIf="cartState.count() > 0"
+              >
+                {{ cartState.count() }}
+                <span class="visually-hidden">item in cart</span>
+              </span>
+            </button>
           </li>
         </ul>
       </div>

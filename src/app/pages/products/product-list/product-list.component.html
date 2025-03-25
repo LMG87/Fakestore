@@ -1,26 +1,35 @@
-<div class="container">
-  @defer (when productsStateService.state().status !='loading') {
-    <span class="d-flex justify-content-end mt-3">
-      <button
-        class="btn btn-success circle m-3"
-        type="button"
-        (click)="changePage(page + 1)"
-      >
-        <i class="bi bi-arrow-right"></i>
-      </button>
-    </span>
-    <div class="row">
-      @for (product of productsStateService.state().products; track $index) {
-        <div class="col mt-3">
-          <app-card [product]="product"></app-card>
+<div class="container p-5">
+  @switch (productsStateService.state().status) {
+    @case ("loading") {
+      <div class="text-center my-5">
+        <div class="spinner-border" role="status">
+          <span class="visually-hidden">Loading...</span>
         </div>
-      }
-    </div>
-  } @placeholder {
-    <div class="text-center m-5">
-      <div class="spinner-border" role="status">
-        <span class="visually-hidden">Loading...</span>
       </div>
-    </div>
+    }
+    @case ("error") {
+      <div class="alert alert-danger text-center my-5" role="alert">Error</div>
+    }
+    @default {
+      <span class="d-flex justify-content-end">
+        <button
+          class="btn btn-success circle m-3"
+          type="button"
+          (click)="changePage()"
+        >
+          <i class="bi bi-arrow-right"></i>
+        </button>
+      </span>
+      <div class="row">
+        @for (product of productsStateService.state().products; track $index) {
+          <div class="col mt-3">
+            <app-card
+              [product]="product"
+              (addToCart)="addToCart($event)"
+            ></app-card>
+          </div>
+        }
+      </div>
+    }
   }
 </div>

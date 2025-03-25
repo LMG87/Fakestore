@@ -65,3 +65,9 @@ para que respete los estilos de la version nueva de angular
 ```bash
 npm install prettier prettier-eslint eslint-config-prettier eslint-plugin-prettier --save-dev
 ```
+
+## anadir funcionalidad del signalslice
+
+```bash
+ng add ngxtension
+```
